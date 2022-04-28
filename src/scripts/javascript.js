@@ -25,11 +25,15 @@ xhttp.onreadystatechange = function() {
                     </div>
                 </div>
                 <div class="inner-left-section">
-                    <h5 class="company">${row.company}</h5>
-                    <h3 class="position">${row.position}</h3>
-                    <p class="location">${row.location}</p>
+                    <h5 class="company m-1">${row.company}</h5>
+                    <h3 class="position m-1">${row.position}</h3>
+                    <p class="location d-inline-block rounded m-1">${row.location}</p>
                 </div>
-                <div class="inner-right-section"></div>
+                <div class="inner-right-section">
+                    ${row.tags.map(function(tag) {
+                        return `<div class="tag rounded m-1">${tag}</div>`
+                    }).join('')}
+                </div>
                 <div class="outer-right-section"></div>
             `;
             jobsContainer.appendChild(rowDiv);

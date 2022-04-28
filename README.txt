@@ -6,4 +6,4 @@
 
  - BEGIN SASS WATCH: run " npm start "; you will have to run this every time you continue editing your website in a live browser; this ensures that the SASS you are writing updates live to the browser.
 
- - This project makes use of the Remote Jobs API: http://www.remoteok.io/api; it is free to use with no API keys needed (as of April, 28th, 2022).
+ - This project makes use of the Remote Jobs API: https://remoteok.com/api?tag=css; it is free to use with no API keys needed (as of April, 28th, 2022).

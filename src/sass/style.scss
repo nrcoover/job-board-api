@@ -1,7 +1,5 @@
 @use "base";
-@use "components";
 @use "layout";
-@use "utilities";
 
 .container {
     width: min(100% - 2rem, 60rem);

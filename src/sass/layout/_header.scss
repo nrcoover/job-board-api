@@ -1,0 +1,27 @@
+@use "../abstracts/index" as *;
+
+header {
+    height: 20rem;
+    width: 100%;
+    
+    .header-content {
+        @include flexbox(column, center, center);
+        min-width: 28rem;
+        width: 50%;
+    }
+    
+    .header-content-wrapper {
+        @include flexbox(column, center, center);
+        background-color: rgba(255, 255, 255, .7);
+        text-align: center;
+        width: 100%;
+
+        h1 {
+            min-width: 17ch;
+        }
+    
+        h4 {
+            min-width: 25ch;
+        }
+    }
+}

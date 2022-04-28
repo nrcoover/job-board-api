@@ -1,6 +1,9 @@
+@use "../abstracts/index" as *;
+
 html, body {
+    background-color: $dark-sea-blue;
+    max-width: 1200px;
     min-width: 399px;
-    background-color: lightblue;
 }
 
 h1 {

@@ -21,8 +21,31 @@ article {
 
 .row {
     @include resetbox;
-    border: 1px solid grey;
+    @include flexbox(row, center, center);
+    justify-content: space-between;
     width: 100%;
+
+    .outer-left-section {
+        width: 6rem;
+
+        .logo-wrapper {
+            @include flexbox(column, center, center);
+            height: 7rem;
+            width: 7rem;
+        }
+    }
+
+    .inner-left-section {
+        width: 35%;
+    }
+
+    .inner-right-section {
+        width: 35%;
+    }
+
+    .outer-right-section {
+        width: auto;
+    }
 }
 
 .company, .position {

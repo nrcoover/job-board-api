@@ -10,11 +10,27 @@ xhttp.onreadystatechange = function() {
             console.log(row, i);
             var rowDiv = document.createElement('div');
             // var rowDiv = $('div');
-            rowDiv.classList.add('row', 'mt-4', 'p-3', 'shadow-lg');
+            
+            // var styles = {
+            //     "display": "flex",
+            //     "flex-direction": "row",
+            // };
+            // Object.assign(rowDiv.style, styles);
+
+            rowDiv.classList.add('row', 'mt-4', 'p-3', 'shadow-lg', 'rounded');
             rowDiv.innerHTML = `
-                <h5 class="company">${row.company}</h5>
-                <h3 class="position">${row.position}</h3>
-                <p class="location">${row.location}</p>
+                <div class="outer-left-section">
+                    <div class="logo-wrapper">
+                        <img class="shadow rounded-circle" src="${row.company_logo}" alt="Logo for ${row.company}">
+                    </div>
+                </div>
+                <div class="inner-left-section">
+                    <h5 class="company">${row.company}</h5>
+                    <h3 class="position">${row.position}</h3>
+                    <p class="location">${row.location}</p>
+                </div>
+                <div class="inner-right-section"></div>
+                <div class="outer-right-section"></div>
             `;
             jobsContainer.appendChild(rowDiv);
             // jobsContainer.append(rowDiv);

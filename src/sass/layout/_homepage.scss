@@ -1,0 +1,33 @@
+@use "../abstracts/index" as *;
+
+main {
+    width: 100%;
+}
+
+article {
+    @include flexbox(column, center, center);
+    width: 100%;
+
+    .row:nth-child(odd) {
+        background-color: $tan;
+    }
+
+    .row:nth-child(even) {
+        background-color: $light-sea-blue
+    }
+}
+
+.row {
+    @include resetbox;
+    border: 1px solid grey;
+    width: 100%;
+}
+
+.company, .position {
+    font-size: clamp(12px, 2.5vw, 18px);
+}
+
+.location {
+    font-size: clamp(8px, 2.5vw, 12px);
+    border: 1px solid grey;
+}

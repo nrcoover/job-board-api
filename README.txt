@@ -5,3 +5,5 @@
  - INSTALL MODULES using " npm install " on the package.json (initialization for this defualt project has already been done, however, the node_modules folder is a .gitignore exception, so any templates built from this folder on github will have to reinstall the package.json file before beginning work.) Open the terminal with [CTRL]+[`] ("Control" and "Backtick").
 
  - BEGIN SASS WATCH: run " npm start "; you will have to run this every time you continue editing your website in a live browser; this ensures that the SASS you are writing updates live to the browser.
+
+ - This project makes use of the Remote Jobs API: http://www.remoteok.io/api; it is free to use with no API keys needed (as of April, 28th, 2022).

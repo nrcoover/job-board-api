@@ -1,4 +1,5 @@
 @use "../abstracts/index" as *;
+@use "../base/fonts" as *;
 
 header {
     height: 20rem;
@@ -15,5 +16,9 @@ header {
         background-color: rgba(255, 255, 255, .7);
         text-align: center;
         width: 100%;
+
+        span {
+            font-family: $playfair-display;
+        }
     }
 }

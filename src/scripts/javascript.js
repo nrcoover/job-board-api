@@ -11,6 +11,34 @@ xhttp.onreadystatechange = function() {
             var rowDiv = document.createElement('div');
             // var rowDiv = $('div');
             rowDiv.classList.add('row', 'mt-4', 'p-3', 'shadow-lg', 'rounded');
+            // converts JSON date string into a JavaScript usable date code gathered from: https://weblog.west-wind.com/posts/2014/jan/06/javascript-json-date-parsing-and-real-dates
+            if (window.JSON && !window.JSON.dateParser) {
+                var reISO = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2}(?:\.\d*))(?:Z|(\+|-)([\d|:]*))?$/;
+                var reMsAjax = /^\/Date\((d|-|.*)\)[\/|\\]$/;
+                JSON.dateParser = function (key, value) {
+                    if (typeof value === 'string') {
+                        var a = reISO.exec(value);
+                        if (a)
+                            return new Date(value);
+                        a = reMsAjax.exec(value);
+                        if (a) {
+                            var b = a[1].split(/[-+,.]/);
+                            return new Date(b[0] ? +b[0] : 0 - +b[1]);
+                        }
+                    }
+                    return value;
+                };
+            }
+            rowDivDateCount = function() {
+                var jsonStringDate = JSON.stringify(row.date);
+                var jsonDate = JSON.parse(jsonStringDate, JSON.dateParser);
+                var datePosted = new Date(jsonDate).getTime();
+                var currentDate = new Date().getTime();
+                var difference = currentDate - datePosted;
+                var daysElapsed = Math.floor(difference / 3600000 / 24);
+                return daysElapsed;
+            }
+            
             rowDiv.innerHTML = `
                 <div class="outer-left-section">
                     <div class="logo-wrapper">
@@ -26,6 +54,9 @@ xhttp.onreadystatechange = function() {
                     ${row.tags.map(function(tag) {
                         return `<div class="tag rounded m-1">${tag}</div>`
                     }).join('')}
+                </div>
+                <div class="middle-right-section">
+                    <i class="icon-pushpin"></i> ${rowDivDateCount()}d
                 </div>
                 <div class="outer-right-section">
                     <div class="button-wrapper">

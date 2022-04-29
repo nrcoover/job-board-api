@@ -10,13 +10,6 @@ xhttp.onreadystatechange = function() {
             console.log(row, i);
             var rowDiv = document.createElement('div');
             // var rowDiv = $('div');
-            
-            // var styles = {
-            //     "display": "flex",
-            //     "flex-direction": "row",
-            // };
-            // Object.assign(rowDiv.style, styles);
-
             rowDiv.classList.add('row', 'mt-4', 'p-3', 'shadow-lg', 'rounded');
             rowDiv.innerHTML = `
                 <div class="outer-left-section">
@@ -34,7 +27,11 @@ xhttp.onreadystatechange = function() {
                         return `<div class="tag rounded m-1">${tag}</div>`
                     }).join('')}
                 </div>
-                <div class="outer-right-section"></div>
+                <div class="outer-right-section">
+                    <div class="button-wrapper">
+                        <a href="${row.url}" target="_blank"><button class="apply-btn shadow">Apply</button></a>
+                    </div>
+                </div>
             `;
             jobsContainer.appendChild(rowDiv);
             // jobsContainer.append(rowDiv);

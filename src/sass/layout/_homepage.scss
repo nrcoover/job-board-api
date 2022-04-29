@@ -47,7 +47,8 @@ article {
 
     .inner-left-section {
         @include flexbox(column, center, start);
-        width: 35%;
+        margin-left: 1rem;
+        width: 30%;
 
         .location {
             font-size: clamp(8px, 2.5vw, 12px);
@@ -67,10 +68,31 @@ article {
             padding: .25rem .75rem;
             text-transform: uppercase;
         }
+
     }
 
     .outer-right-section {
+        @include flexbox(column, center, center);
+        // text-align: center;
         width: auto;
+
+        .button-wrapper {
+            margin: 1rem auto;
+        }
+
+        .apply-btn {
+            border-radius: 35px;
+            font-size: clamp(18px, 3.5vw, 26px);
+            font-weight: 600;
+            padding: .75rem 2.25rem;
+            transition: ease all .3s;
+        }
+    }
+
+    .apply-btn:hover, .tag:hover {
+        background-color: black;
+        color: white;
+        transition: ease all .2s;
     }
 }
 

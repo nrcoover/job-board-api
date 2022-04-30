@@ -2,12 +2,10 @@
 var xhttp = new XMLHttpRequest();
 xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-        console.log(JSON.parse(xhttp.responseText));
         var data = JSON.parse(xhttp.responseText);
         var jobsContainer = document.querySelector('#jobsContainer');
         // var jobsContainer = $('#jobsContainer');
         data.slice(1).forEach(function(row, i) {
-            console.log(row, i);
             var rowDiv = document.createElement('div');
             // var rowDiv = $('div');
             rowDiv.classList.add('row', 'mt-4', 'p-3', 'shadow-lg', 'rounded');
@@ -35,8 +33,18 @@ xhttp.onreadystatechange = function() {
                 var datePosted = new Date(jsonDate).getTime();
                 var currentDate = new Date().getTime();
                 var difference = currentDate - datePosted;
-                var daysElapsed = Math.floor(difference / 3600000 / 24);
+                var daysElapsed = (difference / 3600000 / 24);
                 return daysElapsed;
+            }
+
+            timeMeasureDisplay = function(timeAmount) {
+                let returnString = ''
+                if (timeAmount < 1) {
+                    returnString = 'h';
+                } else {
+                    returnString = 'd'
+                }
+                return returnString;
             }
             
             rowDiv.innerHTML = `
@@ -60,7 +68,7 @@ xhttp.onreadystatechange = function() {
                             }).join('')}
                         </div>
                         <div class="middle-right-section">
-                            <i class="icon-pushpin"></i> ${rowDivDateCount()}d
+                            <i class="icon-pushpin"></i> ${Math.floor(rowDivDateCount())}${timeMeasureDisplay(rowDivDateCount())}
                         </div>
                         <div class="outer-right-section">
                             <div class="button-wrapper">

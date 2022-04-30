@@ -1,10 +1,66 @@
 @use "base";
 @use "layout";
+@use "abstracts" as *;
 
-.container {
-    width: min(100% - 2rem, 60rem);
-    // This is saying, take up the full space, but leave 2rem on each side, and make sure that the element is never larger than 60rem.
-    margin-inline: auto;
-    // Centers the element on the page.
+@media only screen and (max-width: 993px) {
+    article {
+    
+        section {
+            @include flexbox(row, center, center);
+            padding: .5rem;
+        }
+        
+        .left-top-segment {
+            width: 100%;
+        }
+        
+        .right-bottom-segment {
+            justify-content: space-around;
+            width: 100%;
+        }
+        
+        .row-sections-wrapper {
+            @include flexbox(column, center, center);
+            padding: 0;
+        }
+    }
+
+    .row {
+        .outer-right-section {
+            .button-wrapper {
+                margin-right: 0rem;
+            }
+        }
+    }
 }
-// Consider these ideas for a mixin or function later.
+
+@media only screen and (max-width: 659px) {
+    article {
+    
+        .left-top-segment {
+        }
+        
+        .right-bottom-segment {
+            @include flexbox(column, center, center);
+        }
+        
+        .row-sections-wrapper {
+        }
+    }
+
+    .row {
+        .inner-right-section {
+            width: 95%;
+        }
+
+        .middle-right-section {
+            padding-top: .75rem;
+        }
+
+        .outer-right-section {
+            .button-wrapper {
+                margin-right: 0rem;
+            }
+        }
+    }
+}

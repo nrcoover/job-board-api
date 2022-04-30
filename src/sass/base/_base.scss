@@ -1,5 +1,11 @@
 @use "../abstracts/index" as *;
 
+::-webkit-scrollbar {
+    display: none;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
 html, body {
     background-color: $dark-sea-blue;
     margin: 0 auto;

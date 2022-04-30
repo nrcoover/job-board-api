@@ -6,9 +6,15 @@ header {
     width: 100%;
     
     .header-content {
+        max-width: 1600px;
+        margin: 0 auto;
+    }
+
+    .header-content-container {
         @include flexbox(column, center, center);
         min-width: clamp(24.5rem, 40vw, 28rem);
         width: 50%;
+        max-width: 600px
     }
     
     .header-content-wrapper {

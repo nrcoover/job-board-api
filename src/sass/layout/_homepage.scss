@@ -10,6 +10,24 @@ article {
     @include flexbox(column, center, center);
     width: 100%;
 
+    section {
+        @include flexbox(row, center, center);
+    }
+    
+    .left-top-segment {
+        width: 44%;
+    }
+    
+    .right-bottom-segment {
+        justify-content: space-between;
+        width: 56%;
+    }
+    
+    .row-sections-wrapper {
+        @include flexbox(row, center, center);
+        padding: 0;
+    }
+
     .row:nth-child(odd) {
         background-color: $tan;
 
@@ -47,8 +65,8 @@ article {
 
     .inner-left-section {
         @include flexbox(column, center, start);
-        margin-left: 1rem;
-        width: 30%;
+        margin-left: 2rem;
+        width: 70%;
 
         .location {
             font-size: clamp(8px, 2.5vw, 12px);
@@ -60,7 +78,7 @@ article {
     .inner-right-section {
         @include flexbox(row, start, center);
         flex-wrap: wrap;
-        width: 35%;
+        width: 61%;
 
         .tag {
             background-color: rgba(255, 255, 255, .9);
@@ -73,7 +91,8 @@ article {
 
     .middle-right-section {
         @include flexbox(row, center, center);
-        width: 3%;
+        padding: 0 1rem 0 .5rem;
+        width: 5%;
     }
 
     .outer-right-section {
@@ -90,6 +109,7 @@ article {
             font-weight: 600;
             padding: .75rem 2.25rem;
             transition: ease all .3s;
+            margin-right: .75rem;
         }
     }
 

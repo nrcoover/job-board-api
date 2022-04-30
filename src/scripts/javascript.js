@@ -40,28 +40,34 @@ xhttp.onreadystatechange = function() {
             }
             
             rowDiv.innerHTML = `
-                <div class="outer-left-section">
-                    <div class="logo-wrapper">
-                        <img class="shadow rounded-circle" src="${row.company_logo}" alt="Logo for ${row.company}">
-                    </div>
-                </div>
-                <div class="inner-left-section">
-                    <h5 class="company m-1">${row.company}</h5>
-                    <h3 class="position m-1">${row.position}</h3>
-                    <p class="location d-inline-block rounded m-1">${row.location}</p>
-                </div>
-                <div class="inner-right-section">
-                    ${row.tags.map(function(tag) {
-                        return `<div class="tag rounded m-1">${tag}</div>`
-                    }).join('')}
-                </div>
-                <div class="middle-right-section">
-                    <i class="icon-pushpin"></i> ${rowDivDateCount()}d
-                </div>
-                <div class="outer-right-section">
-                    <div class="button-wrapper">
-                        <a href="${row.url}" target="_blank"><button class="apply-btn shadow">Apply</button></a>
-                    </div>
+                <div class="row-sections-wrapper">
+                    <section class="left-top-segment">
+                        <div class="outer-left-section">
+                            <div class="logo-wrapper">
+                                <img class="shadow rounded-circle" src="${row.company_logo}" alt="Logo for ${row.company}">
+                            </div>
+                        </div>
+                        <div class="inner-left-section">
+                            <h5 class="company m-1">${row.company}</h5>
+                            <h3 class="position m-1">${row.position}</h3>
+                            <p class="location d-inline-block rounded m-1">${row.location}</p>
+                        </div>
+                    </section>
+                    <section class = "right-bottom-segment">
+                        <div class="inner-right-section">
+                            ${row.tags.map(function(tag) {
+                                return `<div class="tag rounded m-1">${tag}</div>`
+                            }).join('')}
+                        </div>
+                        <div class="middle-right-section">
+                            <i class="icon-pushpin"></i> ${rowDivDateCount()}d
+                        </div>
+                        <div class="outer-right-section">
+                            <div class="button-wrapper">
+                                <a href="${row.url}" target="_blank"><button class="apply-btn shadow">Apply</button></a>
+                            </div>
+                        </div>
+                    </section>
                 </div>
             `;
             jobsContainer.appendChild(rowDiv);

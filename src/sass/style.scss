@@ -3,6 +3,10 @@
 @use "abstracts" as *;
 
 @media only screen and (max-width: 993px) {
+    header {
+        height: 20rem;
+    }
+    
     article { 
         section {
             @include flexbox(row, center, center);
@@ -34,6 +38,10 @@
 }
 
 @media only screen and (max-width: 659px) {
+    header {
+        height: 13rem;
+    }
+    
     article {
         .right-bottom-segment {
             @include flexbox(column, center, center);
